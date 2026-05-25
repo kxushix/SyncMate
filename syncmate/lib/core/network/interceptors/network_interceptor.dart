@@ -1,6 +1,6 @@
 
 import 'package:dio/dio.dart';
-import 'package:syncsketch/core/logger/app_logger.dart';
+import 'package:syncmate/core/logger/app_logger.dart';
 
 class NetworkInterceptor extends Interceptor {
   final AppLogger logger;

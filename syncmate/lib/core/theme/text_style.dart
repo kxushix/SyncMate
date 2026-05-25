@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:syncsketch/core/theme/theme_extension.dart';
+import 'package:syncmate/core/theme/theme_extension.dart';
 
 class AppTextStyles {
   static TextStyle body(BuildContext context) =>

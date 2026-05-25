@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:syncsketch/app/router/route_gaurd.dart';
-import 'package:syncsketch/app/router/routes_name.dart';
-import 'package:syncsketch/app/router/routes_path.dart';
-// import 'package:syncsketch/features/home/presentation/screens/home_screen.dart';
-import 'package:syncsketch/features/explore/presentation/screens/explore_screen.dart';
-import 'package:syncsketch/features/submit/presentation/screens/submit_screen.dart';
-import 'package:syncsketch/features/library/presentation/screens/library_screen.dart';
-import 'package:syncsketch/features/profile/presentation/screens/profile_screen.dart';
-import 'package:syncsketch/shared/widgets/custom_bottom_nav_bar.dart';
+import 'package:syncmate/app/router/route_gaurd.dart';
+import 'package:syncmate/app/router/routes_name.dart';
+import 'package:syncmate/app/router/routes_path.dart';
+// import 'package:syncmate/features/home/presentation/screens/home_screen.dart';
+import 'package:syncmate/features/explore/presentation/screens/explore_screen.dart';
+import 'package:syncmate/features/submit/presentation/screens/submit_screen.dart';
+import 'package:syncmate/features/library/presentation/screens/library_screen.dart';
+import 'package:syncmate/features/profile/presentation/screens/profile_screen.dart';
+import 'package:syncmate/shared/widgets/custom_bottom_nav_bar.dart';
 
 /// A robust, scalable navigation system that merges existing auth guards
 /// with the production-quality StatefulShellRoute architecture.
@@ -19,17 +19,27 @@ class AppRouter {
 
   // Navigator keys for persistence and deep linking support
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
-  static final _homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'home');
-  static final _exploreNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'explore');
-  static final _submitNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'submit');
-  static final _libraryNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'library');
-  static final _profileNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
+  static final _homeNavigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'home',
+  );
+  static final _exploreNavigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'explore',
+  );
+  static final _submitNavigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'submit',
+  );
+  static final _libraryNavigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'library',
+  );
+  static final _profileNavigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'profile',
+  );
 
   late final GoRouter router = GoRouter(
     initialLocation: RoutesPath.home,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    
+
     // Integrating existing Auth Guard logic
     redirect: (context, state) {
       return RouteGaurd.authGaurd(isLoggedIn, state.matchedLocation);
@@ -62,9 +72,8 @@ class AppRouter {
               GoRoute(
                 name: RoutesName.explore,
                 path: RoutesPath.explore,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: ExploreScreen(),
-                ),
+                pageBuilder: (context, state) =>
+                    const NoTransitionPage(child: ExploreScreen()),
               ),
             ],
           ),
@@ -75,9 +84,8 @@ class AppRouter {
               GoRoute(
                 name: RoutesName.submit,
                 path: RoutesPath.submit,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: SubmitScreen(),
-                ),
+                pageBuilder: (context, state) =>
+                    const NoTransitionPage(child: SubmitScreen()),
               ),
             ],
           ),
@@ -88,9 +96,8 @@ class AppRouter {
               GoRoute(
                 name: RoutesName.library,
                 path: RoutesPath.library,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: LibraryScreen(),
-                ),
+                pageBuilder: (context, state) =>
+                    const NoTransitionPage(child: LibraryScreen()),
               ),
             ],
           ),
@@ -101,9 +108,8 @@ class AppRouter {
               GoRoute(
                 name: RoutesName.profile,
                 path: RoutesPath.profile,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: ProfileScreen(),
-                ),
+                pageBuilder: (context, state) =>
+                    const NoTransitionPage(child: ProfileScreen()),
               ),
             ],
           ),

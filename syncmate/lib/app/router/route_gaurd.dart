@@ -1,4 +1,4 @@
-import 'package:syncsketch/app/router/routes_path.dart';
+import 'package:syncmate/app/router/routes_path.dart';
 
 class RouteGaurd {
   static String? authGaurd(bool isLoggedIn, String location) {

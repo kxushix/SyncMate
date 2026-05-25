@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:syncsketch/core/theme/app_theme.dart';
-import 'package:syncsketch/core/theme/cubit/theme_cubit.dart';
-import 'package:syncsketch/app/router/app_router.dart';
+import 'package:syncmate/core/theme/app_theme.dart';
+import 'package:syncmate/core/theme/cubit/theme_cubit.dart';
+import 'package:syncmate/app/router/app_router.dart';
 
 /// The root widget of the application.
-/// 
+///
 /// Uses a [StatefulWidget] to maintain a persistent instance of [AppRouter],
 /// ensuring the navigation state is preserved across theme changes.
 class App extends StatefulWidget {
@@ -16,7 +16,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  // Initialize the router once. In a real app, isLoggedIn would be 
+  // Initialize the router once. In a real app, isLoggedIn would be
   // driven by an AuthBloc or AuthRepository.
   late final _appRouter = AppRouter(isLoggedIn: true);
 

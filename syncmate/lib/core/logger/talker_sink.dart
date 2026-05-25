@@ -1,7 +1,7 @@
 
-import 'package:syncsketch/core/logger/log_event.dart';
-import 'package:syncsketch/core/logger/log_sink.dart';
-import 'package:syncsketch/core/logger/log_level.dart';
+import 'package:syncmate/core/logger/log_event.dart';
+import 'package:syncmate/core/logger/log_sink.dart';
+import 'package:syncmate/core/logger/log_level.dart';
 import 'package:talker/talker.dart' hide LogLevel;
 
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:syncsketch/core/storage/theme_storage.dart';
+import 'package:syncmate/core/storage/theme_storage.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeCubit extends Cubit<ThemeMode> {

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
-import 'package:syncsketch/core/logger/app_logger.dart';
-import 'package:syncsketch/core/network/interceptors/network_interceptor.dart';
+import 'package:syncmate/core/logger/app_logger.dart';
+import 'package:syncmate/core/network/interceptors/network_interceptor.dart';
 
 class DioClient {
   final Dio dio;
