@@ -27,6 +27,6 @@ export const MailService = {
 
     async sendWelcomeMail(to: string): Promise<SentMessageInfo> {
         const html = welcomeEmailTemplate(to);
-        return this.sendMail(to, "Welcome to SyncSketch!", html);
+        return this.sendMail(to, "Welcome to SyncMate!", html);
     },
 };

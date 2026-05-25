@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.syncsketch"
+    namespace = "com.example.syncmate"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

@@ -10,7 +10,7 @@ class DioClient {
 
   factory DioClient({
     required AppLogger logger,
-    String baseUrl = 'https://api.syncsketch.com',
+    String baseUrl = 'https://api.syncmate.com',
   }) {
     final options = BaseOptions(
       baseUrl: baseUrl,

@@ -1,4 +1,4 @@
-package com.example.syncsketch
+package com.example.syncmate
 
 import io.flutter.embedding.android.FlutterActivity
 

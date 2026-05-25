@@ -132,7 +132,7 @@ UserSchema.methods.getJWT = function (): string {
     // Use your JWT_SECRET from config, not hardcoded!
     const token = jwt.sign(
         { userId: user._id.toString() },
-        config.jwt.secret || 'SyncSketch',
+        config.jwt.secret || 'SyncMate',
         { expiresIn: '1h' }
     );
     return token;

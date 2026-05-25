@@ -1,6 +1,6 @@
 {
-    "name": "syncsketch",
-    "short_name": "syncsketch",
+    "name": "SyncMate",
+    "short_name": "SyncMate",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

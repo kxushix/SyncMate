@@ -1,4 +1,4 @@
-# syncsketch
+# SyncMate
 
 A new Flutter project.
 
