@@ -31,7 +31,7 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Container(
           height: preferredSize.height,
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.horizontalPadding,
+            horizontal: 24.0, // HTML: px-6 (24px)
           ),
           child: Stack(
             alignment: Alignment.center,
@@ -40,10 +40,13 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               // Aligned independently to the left.
               Align(
                 alignment: Alignment.centerLeft,
-                child: MenuButton(
-                  onTap: () {
-                    // TODO: Open Drawer or Grid Menu
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 2.0), // HTML: margin-bottom: 2px
+                  child: MenuButton(
+                    onTap: () {
+                      // TODO: Open Drawer or Grid Menu
+                    },
+                  ),
                 ),
               ),
 
@@ -51,21 +54,22 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               // This section remains perfectly centered regardless of side widget widths.
               Row(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    AppAssets.poetisticLogo,
-                    width: 90,
-                    height: 27,
-                    placeholderBuilder: (context) => const Text(
-                      'Poetistic',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0), // HTML: margin-bottom: 10px
+                    child: SvgPicture.asset(
+                      AppAssets.poetisticLogo,
+                      width: 90,
+                      height: 27.77, // HTML: 90px x 27.77px
+                      placeholderBuilder: (context) => const Text(
+                        'Poetistic',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
                     ),
                   ),
-                  const SizedBox(width: AppSpacing.s8),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child:  LanguageDropdownChip(),
-                  ),
+                  const SizedBox(width: AppSpacing.s8), // HTML gap-2 (8px)
+                  const LanguageDropdownChip(),
                 ],
               ),
 
@@ -83,5 +87,5 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(56.0);
+  Size get preferredSize => const Size.fromHeight(60.0); // HTML: height: 60px
 }

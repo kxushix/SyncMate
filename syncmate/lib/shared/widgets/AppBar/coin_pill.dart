@@ -17,42 +17,45 @@ class CoinPill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 29,
-      constraints: const BoxConstraints(minWidth: 50),
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s8),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: AppColors.greyText ,
-          width: .5,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 2.0),
+      child: Container(
+        height: 29,
+        constraints: const BoxConstraints(minWidth: 46),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s8),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(9999),
+          border: Border.all(
+            color: AppColors.border,
+            width: .5,
+          ),
         ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            AppAssets.coinIcon,
-            width: 20,
-            height: 20,
-            placeholderBuilder: (context) => const Icon(
-              Icons.monetization_on,
-              size: 20,
-              color: Colors.amber,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              AppAssets.coinIcon,
+              width: 20,
+              height: 20,
+              placeholderBuilder: (context) => const Icon(
+                Icons.monetization_on,
+                size: 20,
+                color: Colors.amber,
+              ),
             ),
-          ),
-          const SizedBox(width: AppSpacing.s3),
-          Text(
-            balance,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: AppColors.blackText,
+            const SizedBox(width: AppSpacing.s3),
+            Text(
+              balance,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppColors.blackText,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

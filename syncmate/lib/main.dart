@@ -8,4 +8,10 @@ void main() async {
   final app = await bootstrap();
   FlutterNativeSplash.remove();
   runApp(app);
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => app,
+  //   ),
+  // );
 }

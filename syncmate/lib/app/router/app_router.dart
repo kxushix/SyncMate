@@ -3,12 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:syncmate/app/router/route_gaurd.dart';
 import 'package:syncmate/app/router/routes_name.dart';
 import 'package:syncmate/app/router/routes_path.dart';
-// import 'package:syncmate/features/home/presentation/screens/home_screen.dart';
 import 'package:syncmate/features/explore/presentation/screens/explore_screen.dart';
-import 'package:syncmate/features/submit/presentation/screens/submit_screen.dart';
+import 'package:syncmate/features/home/presentation/screens/home_screen.dart';
 import 'package:syncmate/features/library/presentation/screens/library_screen.dart';
 import 'package:syncmate/features/profile/presentation/screens/profile_screen.dart';
+import 'package:syncmate/features/submit/presentation/screens/submit_screen.dart';
 import 'package:syncmate/shared/widgets/custom_bottom_nav_bar.dart';
+
 
 /// A robust, scalable navigation system that merges existing auth guards
 /// with the production-quality StatefulShellRoute architecture.
@@ -56,13 +57,13 @@ class AppRouter {
           StatefulShellBranch(
             navigatorKey: _homeNavigatorKey,
             routes: [
-              // GoRoute(
-              //   name: RoutesName.home,
-              //   path: RoutesPath.home,
-              //   pageBuilder: (context, state) => const NoTransitionPage(
-              //     child: HomeScreen(),
-              //   ),
-              // ),
+              GoRoute(
+                name: RoutesName.home,
+                path: RoutesPath.home,
+                pageBuilder: (context, state) => const NoTransitionPage(
+                  child: HomeScreen(),
+                ),
+              ),
             ],
           ),
           // Branch 2: Explore

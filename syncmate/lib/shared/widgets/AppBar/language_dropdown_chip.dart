@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
-import '../../../core/constants/app_spacing.dart';
 
 /// A functional dropdown chip for language selection.
 /// 
@@ -25,7 +24,7 @@ class _LanguageDropdownChipState extends State<LanguageDropdownChip> {
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
       // Position the menu below the chip
-      offset: const Offset(0, 34),
+      offset: const Offset(0, 30),
       // Styling the menu appearance
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       color: AppColors.white,
@@ -49,7 +48,7 @@ class _LanguageDropdownChipState extends State<LanguageDropdownChip> {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
                 // Rounded background for a more aesthetic look
-                color: isSelected ? Colors.black.withOpacity(0.05) : Colors.transparent,
+                color: isSelected ? Colors.black.withValues(alpha: 0.05) : Colors.transparent,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
@@ -78,15 +77,15 @@ class _LanguageDropdownChipState extends State<LanguageDropdownChip> {
       },
       // The visual chip that triggers the menu
       child: Container(
-        height: 28,
-        constraints: const BoxConstraints(minWidth: 48),
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s10),
+        height: 24, // HTML: height: 24px
+        constraints: const BoxConstraints(minWidth: 44), // HTML: min-width: 44px
+        padding: const EdgeInsets.symmetric(horizontal: 10), // HTML: padding: 0 10px
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(9999), // HTML: rounded-full
           border: Border.all(
-            color: AppColors.greyText,
-            width: 0.5,
+            color: const Color(0x806E6E6E), // hsla(0,0%,43%,.5)
+            width: 0.35, // HTML: border: .35px
           ),
         ),
         child: Row(
@@ -94,18 +93,17 @@ class _LanguageDropdownChipState extends State<LanguageDropdownChip> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              _selectedLanguage,
+              _selectedLanguage.toUpperCase(),
               style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: AppColors.blackText,
+                fontSize: 9, // HTML: text-[9px]
+                fontWeight: FontWeight.normal,
+                color: Color(0xFF111827), // HTML: color: #1c1c1c or #111827
               ),
             ),
-            const SizedBox(width: AppSpacing.s4),
-            const Icon(
-              Icons.keyboard_arrow_down,
-              size: 14,
-              color: AppColors.greyText,
+            const SizedBox(width: 3), // HTML gap: 3px
+            CustomPaint(
+              size: const Size(7, 7),
+              painter: const ChevronDownPainter(color: Color(0xFF111827)),
             ),
           ],
         ),
@@ -113,3 +111,32 @@ class _LanguageDropdownChipState extends State<LanguageDropdownChip> {
     );
   }
 }
+
+/// A CustomPainter that draws a 7x7 pixel downward-pointing chevron.
+class ChevronDownPainter extends CustomPainter {
+  final Color color;
+  const ChevronDownPainter({this.color = Colors.black});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.0
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    final path = Path();
+    // A clean chevron pointing down in a 7x7 box:
+    // Left (1, 2.5) -> Middle Bottom (3.5, 5) -> Right (6, 2.5)
+    path.moveTo(1.0, 2.5);
+    path.lineTo(3.5, 5.0);
+    path.lineTo(6.0, 2.5);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+

@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import authRoutes from './Routes/user.routes';
 import ConnectionRoutes from './Routes/connection.routes';
+import { errorHandler } from './MiddleWares/errorMiddleware';
 import { AppError } from './Errors/index';
 import { HTTP_STATUS } from './Constant/index';
 import type { Request, Response, NextFunction } from 'express';
@@ -60,18 +61,6 @@ app.use('/api/v1/connection', ConnectionRoutes);
 // });
 
 // Global error handling middleware
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  err.statusCode = err.statusCode || HTTP_STATUS.INTERNAL_SERVER_ERROR;
-  err.status = err.status || 'error';
-
-  // Log error for debugging
-  console.error('Error:', err);
-
-  res.status(err.statusCode).json({
-    status: err.status,
-    message: err.message,
-    ...(config.server.env === 'development' && { stack: err.stack }),
-  });
-});
+app.use(errorHandler);
 
 export default app;
